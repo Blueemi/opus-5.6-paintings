@@ -1,0 +1,181 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Six Paintings</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=Inter:wght@400;500&display=swap">
+<style>
+  :root {
+    --wall: #1b1a18;
+    --ink: #ece6d9;
+    --muted: #9b9484;
+    --faint: #6f695d;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { background: var(--wall); }
+  body {
+    background: radial-gradient(ellipse 90% 900px at 50% 0%, #35302a 0%, #24221f 55%, var(--wall) 100%) no-repeat, var(--wall);
+    color: var(--ink);
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    min-height: 100vh;
+  }
+  header {
+    text-align: center;
+    padding: 9vh 16px 6vh;
+  }
+  header h1 {
+    font-weight: 400;
+    font-size: clamp(40px, 6vw, 72px);
+    letter-spacing: 0.01em;
+  }
+  header p {
+    font-style: italic;
+    color: var(--muted);
+    font-size: clamp(17px, 2vw, 21px);
+    margin-top: 10px;
+  }
+  header .rule {
+    width: 64px; height: 1px; background: #5a5248; margin: 26px auto 0;
+  }
+  main {
+    max-width: 1320px;
+    margin: 0 auto;
+    padding: 0 24px 10vh;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+    gap: 22px 48px;
+    grid-auto-rows: auto auto;
+  }
+  a.work {
+    color: inherit;
+    text-decoration: none;
+    display: grid;
+    grid-row: span 2;
+    grid-template-rows: subgrid;
+    justify-items: center;
+    margin-bottom: 42px;
+  }
+  a.work .frame { align-self: end; }
+  a.work .cap { align-self: start; }
+  .frame {
+    position: relative;
+    padding: 12px;
+    background: linear-gradient(135deg, #3a2a1a 0%, #20160d 40%, #4a3520 60%, #1a120a 100%);
+    box-shadow:
+      0 0 0 1px #0c0806,
+      inset 0 0 0 2px #6b5332,
+      inset 0 0 0 4px #20160d,
+      inset 0 0 0 5px #8c6d3f,
+      0 26px 50px -18px rgba(0, 0, 0, 0.8);
+    transition: transform 0.5s cubic-bezier(.2,.7,.2,1), box-shadow 0.5s;
+    width: 100%;
+  }
+  .frame.paper { background: linear-gradient(135deg, #ebe6dc, #d8d1c3); box-shadow: 0 0 0 1px #0c0806, inset 0 0 0 2px #bfb6a4, 0 26px 50px -18px rgba(0,0,0,.8); padding: 22px; }
+  .frame.scroll { background: none; padding: 0; box-shadow: 0 30px 50px -20px rgba(0,0,0,.85); width: 52%; }
+  .frame img { display: block; width: 100%; height: auto; }
+  a.work:hover .frame, a.work:focus-visible .frame { transform: translateY(-6px); box-shadow: 0 0 0 1px #0c0806, inset 0 0 0 2px #6b5332, inset 0 0 0 4px #20160d, inset 0 0 0 5px #8c6d3f, 0 40px 60px -20px rgba(0,0,0,.9); }
+  a.work:hover .frame.scroll, a.work:focus-visible .frame.scroll { box-shadow: 0 44px 60px -22px rgba(0,0,0,.95); }
+  a.work:focus-visible { outline: none; }
+  a.work:focus-visible .cap h2 { text-decoration: underline; text-underline-offset: 4px; }
+  .cap { text-align: center; max-width: 380px; }
+  .cap .no { font-family: 'Inter', system-ui, sans-serif; font-size: 11px; letter-spacing: 0.14em; color: var(--faint); text-transform: uppercase; }
+  .cap h2 { font-weight: 500; font-size: 25px; margin-top: 6px; }
+  .cap .medium { font-style: italic; color: var(--muted); font-size: 16px; margin-top: 3px; }
+  .cap .note { color: #b9b1a0; font-size: 16px; line-height: 1.45; margin-top: 10px; }
+  footer {
+    text-align: center;
+    font-family: 'Inter', system-ui, sans-serif;
+    font-size: 12px;
+    letter-spacing: 0.06em;
+    color: var(--faint);
+    padding: 0 16px 8vh;
+    line-height: 1.8;
+  }
+  footer kbd {
+    font-family: inherit;
+    border: 1px solid #4a463e;
+    border-radius: 3px;
+    padding: 0 5px;
+    color: #a39b8a;
+  }
+  @media (max-width: 420px) {
+    main { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+<header>
+  <h1>Six Paintings</h1>
+  <p>Made entirely in JavaScript: light, paint, ink, and water</p>
+  <div class="rule"></div>
+</header>
+
+<main>
+  <a class="work" href="paintings/alpenglow.html">
+    <div class="frame"><img src="renders/thumbs/alpenglow.jpg" alt="A pink-lit alpine horn above a misty valley, mirrored in a still lake at dawn" loading="lazy"></div>
+    <div class="cap">
+      <div class="no">I · Realism</div>
+      <h2>Alpenglow</h2>
+      <p class="medium">Raymarched light on an imagined range</p>
+      <p class="note">First light reaches only the summit; the valley still lies in the earth's blue shadow. Eroded terrain, soft sun shadows, fog banks and a glassy lake.</p>
+    </div>
+  </a>
+
+  <a class="work" href="paintings/lavender.html">
+    <div class="frame"><img src="renders/thumbs/lavender.jpg" alt="Rows of lavender running to a farmhouse and a lone oak under a towering sunlit cumulus, in thick oil" loading="lazy"></div>
+    <div class="cap">
+      <div class="no">II · Oil</div>
+      <h2>Lavender, Late Light</h2>
+      <p class="medium">Oil on canvas, alla prima, impasto</p>
+      <p class="note">Painted coarse to fine with bristle brushes that run dry, carry wet paint and leave ridges, then lit like a canvas on a wall.</p>
+    </div>
+  </a>
+
+  <a class="work" href="paintings/shanshui.html">
+    <div class="frame scroll"><img src="renders/thumbs/shanshui.jpg" alt="A Chinese ink landscape hanging scroll: stacked peaks, a waterfall, mist, pines and a pavilion" loading="lazy"></div>
+    <div class="cap">
+      <div class="no">III · Ink</div>
+      <h2>Ten Thousand Valleys, Pines and Mist</h2>
+      <p class="medium">Ink and light colour on xuan paper, hanging scroll</p>
+      <p class="note">Boulder-stacked peaks in hemp-fibre strokes and moss dots, a waterfall in a cleft, a scholar watching it, and a boat in the mist.</p>
+    </div>
+  </a>
+
+  <a class="work" href="paintings/aurora.html">
+    <div class="frame"><img src="renders/thumbs/aurora.jpg" alt="Green and violet aurora curtains over snowy mountains, reflected in a lake with boulders and a lit cabin" loading="lazy"></div>
+    <div class="cap">
+      <div class="no">IV · Night</div>
+      <h2>The Sky Over Ravnvatn</h2>
+      <p class="medium">Aurora, starlight and one lit window</p>
+      <p class="note">Curtains marched through altitude so they fold in perspective, from green at the foot to violet at the crown, and repeated in the lake.</p>
+    </div>
+  </a>
+
+  <a class="work" href="paintings/strata.html">
+    <div class="frame"><img src="renders/thumbs/strata.jpg" alt="An abstract of dragged and scraped layers of blue, red, orange and green paint" loading="lazy"></div>
+    <div class="cap">
+      <div class="no">V · Abstract</div>
+      <h2>Strata</h2>
+      <p class="medium">Oil on canvas, dragged with a squeegee</p>
+      <p class="note">A loaded blade pulled through wet paint: it deposits, skips in torn streaks, smears, scrapes back to older layers, and ridges where it stops.</p>
+    </div>
+  </a>
+
+  <a class="work" href="paintings/watercolour.html">
+    <div class="frame paper"><img src="renders/thumbs/watercolour.jpg" alt="A loose watercolour of red poppies with dark hearts over a soft green and blue wash" loading="lazy"></div>
+    <div class="cap">
+      <div class="no">VI · Watercolour</div>
+      <h2>Poppies, After Rain</h2>
+      <p class="medium">Watercolour and graphite on cold-pressed paper</p>
+      <p class="note">Transparent glazes that pool at their drying edges and settle into the paper's grain, over a ground painted wet-in-wet.</p>
+    </div>
+  </a>
+</main>
+
+<footer>
+  Every painting is generated live in your browser when you open it.<br>
+  <kbd>←</kbd> <kbd>→</kbd> walk the gallery · <kbd>S</kbd> save a PNG · <kbd>R</kbd> paint a new variation · <kbd>Esc</kbd> back here
+</footer>
+</body>
+</html>

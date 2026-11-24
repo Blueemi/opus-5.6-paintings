@@ -1,0 +1,110 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=Inter:wght@400;500&display=swap');
+
+:root {
+  --wall: #1b1a18;
+  --wall-2: #24221f;
+  --ink: #e9e3d6;
+  --muted: #9b9484;
+  --ar: 1.5;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { background: var(--wall); }
+html, body { min-height: 100%; }
+
+body {
+  background:
+    radial-gradient(ellipse 70% 60% at 50% 38%, #34302a 0%, var(--wall-2) 45%, var(--wall) 100%);
+  color: var(--ink);
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  overflow-x: hidden;
+}
+
+.wall {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 4vh 16px 3vh;
+  gap: 3.2vh;
+}
+
+/* A carved frame: dark outer moulding, gilt bead, linen mat line. */
+.frame {
+  position: relative;
+  padding: clamp(10px, 1.6vmin, 22px);
+  background:
+    linear-gradient(135deg, #3a2a1a 0%, #20160d 40%, #4a3520 60%, #1a120a 100%);
+  box-shadow:
+    0 0 0 1px #0c0806,
+    inset 0 0 0 2px #6b5332,
+    inset 0 0 0 4px #20160d,
+    inset 0 0 0 6px #8c6d3f,
+    0 30px 60px -20px rgba(0, 0, 0, 0.75),
+    0 12px 24px -8px rgba(0, 0, 0, 0.5);
+  max-width: min(94vw, calc(80vh * var(--ar)));
+  width: 100%;
+}
+.frame.vertical { max-width: min(94vw, calc(84vh * var(--ar))); }
+
+.frame canvas {
+  display: block;
+  width: 100%;
+  height: auto;
+  background: #0d0c0b;
+  box-shadow: inset 0 0 12px rgba(0, 0, 0, 0.6), 0 0 0 1px rgba(0, 0, 0, 0.6);
+}
+
+/* Soft gallery light falling on the top of the frame */
+.frame::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(180deg, rgba(255, 236, 200, 0.07), transparent 35%);
+}
+
+.placard {
+  text-align: center;
+  max-width: 640px;
+}
+.placard h1 {
+  font-weight: 500;
+  font-size: clamp(20px, 2.4vh, 28px);
+  letter-spacing: 0.02em;
+}
+.placard .medium {
+  font-style: italic;
+  color: var(--muted);
+  font-size: clamp(14px, 1.8vh, 18px);
+  margin-top: 2px;
+}
+.placard .hint {
+  font-family: 'Inter', system-ui, sans-serif;
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #6f695d;
+  margin-top: 14px;
+}
+.placard .hint a { color: inherit; text-decoration: none; border-bottom: 1px solid #4a463e; }
+#status {
+  font-family: 'Inter', system-ui, sans-serif;
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #a89f8a;
+  min-height: 14px;
+  margin-top: 10px;
+}
+
+/* A hanging scroll carries its own silk mounting: no gilt frame, just a soft shadow on the wall. */
+.frame.scroll {
+  padding: 0;
+  background: none;
+  box-shadow: 0 40px 70px -30px rgba(0, 0, 0, 0.8), 0 10px 20px -10px rgba(0, 0, 0, 0.5);
+  max-width: min(94vw, calc(86vh * var(--ar)));
+}
+.frame.scroll::after { display: none; }
